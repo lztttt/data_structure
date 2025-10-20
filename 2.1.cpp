@@ -84,8 +84,8 @@ int ListLength(LinkNode *L)
 // 查找第i个位置元素
 bool GetElem(LinkNode *L, int i, int &e)
 {
-    int j = 1;             // j当前结点逻辑位序
-    LinkNode *p = L->next; // p指向首结点
+    int j = 1;             // 当前结点逻辑位序
+    LinkNode *p = L->next; 
 
     // 判断合法性
     if (i < 1 || i > ListLength(L))
@@ -107,7 +107,7 @@ bool GetElem(LinkNode *L, int i, int &e)
 bool ListInsert(LinkNode *&L, int i, int x)
 {
     int j = 0;           
-    LinkNode *p = L, *s; // p：第i-1个结点s：新结点
+    LinkNode *p = L, *s; //s新结点
 
     // 判断合法性
     if (i < 1 || i > ListLength(L) + 1)
@@ -141,7 +141,7 @@ bool ListInsert(LinkNode *&L, int i, int x)
 bool ListDelete(LinkNode *&L, int i, int &e)
 {
     int j = 0;          
-    LinkNode *p = L, *q; // p：第i-1个结点q：待删除结点
+    LinkNode *p = L, *q; // q：待删除结点
 
     // 判断合法性
     if (i < 1 || i > ListLength(L))
@@ -172,20 +172,19 @@ bool ListDelete(LinkNode *&L, int i, int &e)
 // 逆置单链表
 void ReverseList(LinkNode *&L)
 {
-    LinkNode *pre = NULL;  // pre：前驱结点（初始为空）
-    LinkNode *p = L->next; // p：当前结点（初始指向首结点）
-    LinkNode *next = NULL; // next：后继结点（暂存p的下一个结点）
+    LinkNode *pre = NULL;  
+    LinkNode *p = L->next;
+    LinkNode *next = NULL; 
 
     // 遍历链表，逐个反转指针方向
     while (p != NULL)
     {
-        next = p->next; // 1. 暂存p的后继（避免断链）
-        p->next = pre;  // 2. 反转p的指针（指向pre）
-        pre = p;        // 3. pre后移到p
-        p = next;       // 4. p后移到next
+        next = p->next;
+        p->next = pre; 
+        pre = p;        
+        p = next;       
     }
 
-    // 头结点指向新的首结点（原尾结点）
     L->next = pre;
 }
 
