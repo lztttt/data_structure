@@ -210,14 +210,11 @@ int main()
     int i, e, x;
     bool flag;
 
-    // 1. 创建单链表
     CreateList(L);
 
-    // 2. 输出链表
-    printf("当前链表结点：");
+    printf("链表结点：");
     DispList(L);
 
-    // 3. 查找第i个位置元素
     printf("请输入要查找的位置i:");
     scanf("%d", &i);
     flag = GetElem(L, i, e);
@@ -230,7 +227,6 @@ int main()
         printf("位置i不合法\n");
     }
 
-    // 4. 插入元素到第i个位置
     printf("请输入要插入的位置i和元素x:");
     scanf("%d %d", &i, &x);
     flag = ListInsert(L, i, x);
@@ -244,7 +240,6 @@ int main()
         printf("位置i不合法\n", ListLength(L) + 1);
     }
 
-    // 5. 删除第i个结点
     printf("请输入要删除的位置i：");
     scanf("%d", &i);
     flag = ListDelete(L, i, e);
@@ -259,12 +254,10 @@ int main()
         printf("位置i不合法\n", ListLength(L));
     }
 
-    // 6. 逆置单链表
     ReverseList(L);
     printf("逆置后链表：");
     DispList(L);
 
-    // 7. 释放全部结点空间
     DestroyList(L);
     return 0;
 }
